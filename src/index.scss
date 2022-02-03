@@ -1,0 +1,56 @@
+:root {
+  --window-border: #c0c0c0;
+  --window-bar: #6363af;
+  --window-bar-text: #eeeeee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.window {
+  border: 2px outset var(--window-border);
+  padding: 0.1rem;
+  background: var(--window-border);
+  position: relative;
+  width: 30rem;
+  height: 20rem;
+  .toolbar {
+    background: var(--window-bar);
+    padding: 0.2rem;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem;
+    grid-template-areas: "action title tools" ;
+    width: 100%;
+    height: 2rem;
+    .tools {
+      grid-area: tools;
+    }
+    .action {
+      grid-area: action;
+    }
+    .title {
+      color: var(--window-bar-text);
+      grid-area: title;
+      cursor: move;
+      user-select: none;
+    }
+  }
+  .content {
+    border: 1px solid inset var(--window-border);
+    background: #eee;
+  }
+}
