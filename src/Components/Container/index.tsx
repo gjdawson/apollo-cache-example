@@ -16,7 +16,7 @@ const Container: React.FC = () => {
     <div className={"content"}>
       {windows.map((window: any) => <Window key={`window-container-${window.id}`} {...window} />)}
     </div>
-    <DragLayer refetch={refetch}/>
+    <DragLayer />
   </>
 }
 

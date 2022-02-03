@@ -1,35 +1,32 @@
 import {gql} from "@apollo/client";
 
+export const WINDOW_POSITION_FRAGMENT = gql`
+  fragment WindowPosition on Window {
+    position @client {
+      x y
+    }
+  }
+`
+
 export const WINDOWS = gql`
+  ${WINDOW_POSITION_FRAGMENT}
   query windows {
       windowStack @client
       windows {
           id
           title
-          position @client {
-            x y
-          }
+          ...WindowPosition
       }
   }
 `
 
 export const ONE_WINDOW = gql`
+  ${WINDOW_POSITION_FRAGMENT}
   query window($id: String) {
     windows(id: $id) {
       id
       title
-      position @client {
-        x y
-      }
-
-    }
-  }
-`
-
-export const SET_WINDOW_POSITION_FRAGMENT = gql`
-  fragment SetWindowPosition on Window {
-    position @client {
-      x y
+      ...WindowPosition
     }
   }
 `

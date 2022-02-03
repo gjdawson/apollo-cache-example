@@ -1,6 +1,6 @@
 import {Position} from "../types/window";
 import {client} from "../graphql/client";
-import {SET_WINDOW_POSITION_FRAGMENT, UPDATE_WINDOW_TEXT} from "../graphql/queries";
+import {UPDATE_WINDOW_TEXT, WINDOW_POSITION_FRAGMENT} from "../graphql/queries";
 
 class WindowService {
 
@@ -18,7 +18,7 @@ class WindowService {
 
     client.writeFragment({
       id: `Window:${id}`,
-      fragment: SET_WINDOW_POSITION_FRAGMENT,
+      fragment: WINDOW_POSITION_FRAGMENT,
       data: {
         // __typename: "Window",
         position: {

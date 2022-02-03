@@ -33,10 +33,10 @@ const getItemStyles = (initialOffset: XYCoord | null, currentOffset: XYCoord | n
 }
 
 interface I {
-  refetch?(a?: any): Promise<any>
+
 }
 
-const DragLayer: React.FC<I> = ({refetch}) => {
+const DragLayer: React.FC<I> = () => {
 
   const {
     itemType,
@@ -56,7 +56,6 @@ const DragLayer: React.FC<I> = ({refetch}) => {
     throttle(150, (id: string, position: Position) => {
       console.log("DRAGGING", position)
       windowService.updateWindowPosition(id, position)
-      // !!refetch && refetch()
     }), [item])
 
   useEffect(() => {
